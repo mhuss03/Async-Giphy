@@ -1,4 +1,10 @@
-require('dotenv').config();
+require("dotenv").config();
 
-// Print out value of API key stored in .env file
-console.log(process.env.API_KEY)
+async function getImage(query) {
+  const res = await fetch(process.env.ENDPOINT);
+  const data = await res.json();
+  console.log(data);
+  return data;
+}
+
+console.log(getImage("dog"));
